@@ -58,23 +58,19 @@ function drawWallTile(x,y){
     drawLine(wallOutlineColor, x + tileSize, y + tileSize / 2, x + tileSize, y - wallHeight + tileSize / 2);
 }
 function drawMap(x,y){
-    var isoX = x
-    var isoY = y
-    for (var rows = 0; rows < tileMap.length; rows ++){
-        if (rows > 0){
-            isoX += tileSize/2;
-        }
-        for (var columns = 0; columns < tileMap.length; columns ++){
-            if (columns > 0){
-                isoY += tileSize / 4;
+    var isoX;
+    var isoY;
+    var tileType;
+    for (var row = 0; row < tileMap.length; row ++){
+        for (var column = 0; column < tileMap[row].length; column ++){
+            isoX = row * tileSize;
+            isoY = column * tileSize;
+            tileType = tileMap[row][column];
+            if (tileType == 'wall'){
+                drawWallTile(x + isoX, y + isoY);
             }
-            //console.log(canvas.width);
-            
-            if (tileMap[rows][columns] == 'wall'){
-                drawWallTile(isoX, isoY);
-            }
-            else if (tileMap[rows][columns] == 'grass'){
-                drawGrassTile(isoX, isoY);
+            else if(tileType == 'grass'){
+                drawGrassTile(x + isoX, y + isoY);
             }
         }
     }
