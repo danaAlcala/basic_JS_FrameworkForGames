@@ -17,7 +17,6 @@ function drawRect(color, x, y, width, height) {
 
     // console.log('drawRect() complete');  // DEBUG
 }
-<<<<<<< HEAD
 function drawIsoRhombusFilled(color, x, y, squareSize){
     canvasContext.fillStyle = color;
     canvasContext.beginPath();
@@ -76,10 +75,11 @@ function drawMap(x,y){
         }
     }
 }
-=======
->>>>>>> 6b4db7951f8d10e8f9576ed5a2b26338ba4f845a
 function drawEverything() {
     drawCanvas();
+    drawMap(canvas.width / 2 - tileSize / 2, wallHeight);
+    //drawGrassTile(0,100);
+    //drawWallTile(100,100);
 }
 function drawCircle(color, x, y, radius) {
     // console.log('Called drawCircle()');  // DEBUG
